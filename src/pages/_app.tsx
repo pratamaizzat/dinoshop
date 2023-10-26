@@ -1,11 +1,18 @@
-import { type AppType } from "next/app";
+import type { AppProps, AppType } from "next/app";
+import { type NextLayout } from "next";
 
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 
-const MyApp: AppType = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+type AppPropsWithLayout = AppProps & {
+  Component: NextLayout
+}
+
+const MyApp: AppType = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? (page => page)
+
+  return getLayout(<Component {...pageProps} />);
 };
 
 export default api.withTRPC(MyApp);

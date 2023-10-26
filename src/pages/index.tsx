@@ -1,9 +1,26 @@
+import * as React from 'react'
+import type { NextLayout } from "next";
 import { Button } from "~/components/ui/button";
+import RootLayout from "~/components/layout/root";
 
-export default function Home() {
+const Page: NextLayout = function Page() {
   return (
-    <main>
-      <Button className="bg-red-500 hover:bg-red-400">This is CN Button</Button>
-    </main>
-  );
+    <section>
+      <Button>Submit</Button>
+      <Button>Submit</Button>
+      <Button>Submit</Button>
+      <Button>Submit</Button>
+    </section>
+  )
 }
+
+Page.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <RootLayout>
+      {page}
+    </RootLayout>
+  )
+}
+
+
+export default Page
