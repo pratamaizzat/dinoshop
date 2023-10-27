@@ -51,5 +51,10 @@
   "ct3aMetadata": {
     "initVersion": "7.22.0"
   },
-  "packageManager": "npm@9.5.1"
+  "packageManager": "npm@9.5.1",
+	"engines": {
+		"npm": ">= 9.5.1",
+		"yarn": "Please use npm instead of yarn.",
+		"pnpm": "Please use npm instead of pnpm."
+	}
 }
